@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Уязвимая форма входа</title>
+</head>
+<body>
+    <h2>Вход</h2>
+    <form id="loginForm">
+        <div>
+            <label for="nickname">Имя пользователя:</label><br>
+            <input type="text" id="nickname" name="nickname" required>
+        </div>
+        <div>
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Войти</button>
+    </form>
+    <div id="sqlQuery" style="margin-top: 20px; padding: 10px; background-color: #e9e9e9; border-radius: 4px; font-family: monospace;"></div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Отменяет отправку
+
+            let nickname = document.getElementById('nickname').value;
+            let password = document.getElementById('password').value;
+            let sqlQueryContainer = document.getElementById('sqlQuery');
+
+            let sqlQuery = `SELECT * FROM users WHERE nickname = "${nickname}" AND password = "${password}"`;
+
+            sqlQueryContainer.textContent = `SQL запрос: ${sqlQuery}`;
+        });
+    </script>
+</body>
+</html>
 
