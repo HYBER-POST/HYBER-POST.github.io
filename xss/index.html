@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset = "UTF-8">
     <title>Уязвимый сайт</title>
 </head>
 <body>
     <h1>Привет!</h1>
     <p>Пожалуйста, введите ваше имя:</p>
     <input type="text" id="userName">
-    <button onclick="showGreeting()">Приветствовать!</button>
+    <button onclick="greeting()">Приветствовать!</button>
     <div id="greeting"></div>
 
     <script>
-        function showGreeting() {
+        function greeting() {
             const userName = document.getElementById('userName').value;
             document.getElementById('greeting').innerHTML = "Привет, " + userName + "!";
         }
